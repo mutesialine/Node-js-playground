@@ -1,7 +1,6 @@
 const http =require('http')
 const fs=require('fs')
 const server =http.createServer((req, res)=>{
-    console.log(req.url , req.method)
     res.setHeader('content-type', 'text/html')
     let path='./views/'
     switch(req.url){
@@ -14,7 +13,7 @@ const server =http.createServer((req, res)=>{
             res.statusCode=200
             break;
             //redirect to about page
-        case '/about-me':
+        case '/about-hello':
         res.statusCode=301
         res.setHeader('location','/about')
         res.end()
