@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blog Aline <%= title %></title>
 </head>
 <body>
-    <nav>
-        <a href="/"> Blog</a>
-       </nav>
-       <ul>
-           <li><a href="/">blogs</a></li>
-           <li><a href="/about">about</a></li>
-           <li><a href="/blogs/create">New Blogs</a></li>
-       </ul>
-       <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia totam quisquam impedit eos ipsum officia deserunt et reprehenderit laudantium temporibus, esse quod asperiores sint similique, dolorem veritatis? Possimus, velit enim?</p>
+    <%- include('./partials/nav.ejs')%>
+    <div class="about content">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
+      </div>
+      <%- include("./partials/footer.ejs") %>
 </body>
 </html>
