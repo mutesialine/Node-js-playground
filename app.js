@@ -7,12 +7,12 @@ app.listen(3000,'localHost',()=>{
 });
 
 app.get('/', (req, res)=>{
-    res.render('index',{title:'home'})
     const blogs = [
-        {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-        {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+        {title: 'Aldo finds food', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+        {title: 'clever finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
         {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
       ];
+    res.render('index',{title:'home' , blogs})
 });
 app.get('/about', (req, res)=>{
     res.render('about', {title :'About' })
