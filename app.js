@@ -6,7 +6,7 @@ const Blog = require('./models/blogs');
 const app = express();
 
 const dbURI='mongodb+srv://aline:123456789A@cluster0.fcm6now.mongodb.net/?retryWrites=true&w=majority'
-mongoose.connect(dbURI)
+ mongoose.connect(dbURI)
  .then((result)=>console.log('connected to the db'))
  .catch((err)=> console.log(err))
 
