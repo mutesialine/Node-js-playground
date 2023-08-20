@@ -18,7 +18,7 @@ app.use(express.static('public'))
 
 app.use(morgan('dev'))
 
-app.get('/add-blog', (res, req)=>{
+app.get('/add-blog', (req, res)=>{
     const blog = new Blog({
         title:"new Blog",
         snippet:"about this new blog",
@@ -31,6 +31,25 @@ app.get('/add-blog', (res, req)=>{
       .catch(err => {
         console.log(err);
       });
+})
+
+app.get('/all-blogs', (req, res)=>{
+    Blog.find()
+    .then(result =>{
+        res.send(result)
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+})
+app.get('/single-blog', (req, res)=>{
+    Blog.findById('64e24aafb9cd002713850487')
+    .then(result =>{
+        res.send(result)
+    })
+    .catch(err =>{
+        console.log(err)
+    })
 })
  
 app.get('/', (req, res)=>{
