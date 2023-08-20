@@ -20,7 +20,7 @@ app.use(morgan('dev'))
 
 app.get('/add-blog', (req, res)=>{
     const blog = new Blog({
-        title:"new Blog",
+        title:"new Blog 2",
         snippet:"about this new blog",
         body:" more about this blog"
     })
@@ -33,33 +33,21 @@ app.get('/add-blog', (req, res)=>{
       });
 })
 
-app.get('/all-blogs', (req, res)=>{
-    Blog.find()
-    .then(result =>{
-        res.send(result)
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-})
-app.get('/single-blog', (req, res)=>{
-    Blog.findById('64e24aafb9cd002713850487')
-    .then(result =>{
-        res.send(result)
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-})
+
  
 app.get('/', (req, res)=>{
-    const blogs = [
-        {title: 'Aldo finds food', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-        {title: 'clever finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-        {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
-      ];
-    res.render('index',{title:'home' , blogs})
+    res.redirect('blogs')
 });
+
+app.get('/blogs',(req, res)=>{
+    Blog.find().sort({createdAt:-1})
+    .then(result =>{
+        res.render('index',{title:'All Blogs', blogs:result})
+    })
+    .catch(err =>{
+        console.log(err)
+    })
+})
 app.get('/about', (req, res)=>{
     res.render('about', {title :'About' })
 })
