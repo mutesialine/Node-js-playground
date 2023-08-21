@@ -35,18 +35,18 @@ app.get('/add-blog', (req, res)=>{
 })
 
 app.get('/', (req, res)=>{
-    res.redirect('blogs')
+    res.redirect('/blogs')
 });
 
-app.get('/blogs',(req, res)=>{
-    Blog.find().sort({createdAt:-1})
-    .then(result =>{ 
-        res.render('index',{title:'All Blogs', blogs:result})
-    })
-    .catch(err =>{
-        console.log(err)
-    })
-})
+app.get('/blogs', (req, res) => {
+    Blog.find().sort({ createdAt: -1 })
+      .then(result => {
+        res.render('index', { blogs: result, title: 'All blogs' });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
 
 app.post('/blogs',(req,res)=>{
     const blog= new Blog(req.body)
@@ -71,7 +71,7 @@ app.get('/blogs/:id',(req,res)=>{
 })
 
 app.delete('/blogs/:id',(req,res)=>{
-    const id=req.params.id
+    const id = req.params.id
      Blog.findByIdAndDelete(id)
     .then(result =>{
     res.json({redirect:'/blogs'})
